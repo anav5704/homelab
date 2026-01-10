@@ -1,6 +1,6 @@
 # My GitOps Homelab
 
-![My GitOps Homelab](./.github/docs/images/homelab.png)
+![My GitOps Homelab](./.github/docs/images/homelab.webp)
 
 ## Project Goals
 
