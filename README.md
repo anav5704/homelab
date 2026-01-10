@@ -1,6 +1,6 @@
 # My GitOps Homelab
 
-![My GitOps Homelab](./.github/docs/images/homelab.jpg)
+![My GitOps Homelab](./.github/docs/images/homelab.png)
 
 ## Project Goals
 
@@ -15,7 +15,6 @@
 
 ```plaintext
 Ethernet: 4 × Gigabit Ports (RJ-45)
-Wifi: 
 ```
 
 ### Compute
