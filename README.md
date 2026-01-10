@@ -25,7 +25,7 @@ Ethernet: 4 × Gigabit Ports (RJ-45)
 Hostname: svr-core
 CPU: Intel(R) Core(TM) i5-6500T (4) @ 3.10 GHz
 GPU: Intel HD Graphics 530 @ 1.10 GHz [Integrated]
-Memory: 8GB
+Memory: 16GB
 Disk: 256GB
 ```
 
