@@ -1,0 +1,7 @@
+ansible_user: anav
+ansible_become: true
+ansible_become_method: sudo
+
+system_update_cache_valid_time: 3600
+system_update_autoremove: true
+system_update_autoclean: true
