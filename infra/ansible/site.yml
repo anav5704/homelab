@@ -1,0 +1,5 @@
+---
+- name: setup homelab servers
+  hosts: homelab
+  roles:
+    - common
