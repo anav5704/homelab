@@ -3,3 +3,4 @@
   hosts: homelab
   roles:
     - common
+    - docker
