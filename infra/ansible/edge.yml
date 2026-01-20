@@ -1,0 +1,5 @@
+---
+- name: setup edge (network) nodes
+  hosts: edge_nodes
+  roles:
+    - tailscale
