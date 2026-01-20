@@ -1,0 +1,31 @@
+---
+- name: create tailscale project directory
+  file:
+    path: "{{ tailscale_dir }}"
+    state: directory
+    mode: "0755"
+
+- name: copy docker compose file
+  copy:
+    src: docker-compose.yaml
+    dest: "{{ tailscale_dir }}/docker-compose.yaml"
+    mode: "0644"
+
+- name: copy environment variables
+  copy:
+    src: .env
+    dest: "{{ tailscale_dir }}/.env"
+    mode: "0600"
+
+- name: enable ip forwarding
+  sysctl:
+    name: net.ipv4.ip_forward
+    value: "1"
+    state: present
+    reload: yes
+
+- name: start tailscale containers
+  community.docker.docker_compose_v2:
+    project_src: "{{ tailscale_dir }}"
+    state: present
+    pull: always
