@@ -1,16 +1,16 @@
 ---
 - name: update apt cache
-  apt:
+  ansible.builtin.apt:
     update_cache: yes
 
 - name: upgrade packages
-  apt:
+  ansible.builtin.apt:
     upgrade: dist
 
 - name: remove unnecessary packages
-  apt:
+  ansible.builtin.apt:
     autoremove: true
 
 - name: clean apt cache
-  apt:
+  ansible.builtin.apt:
     autoclean: true
