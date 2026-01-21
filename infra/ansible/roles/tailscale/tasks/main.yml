@@ -17,13 +17,6 @@
     dest: "{{ tailscale_dir }}/.env"
     mode: "0600"
 
-- name: enable ip forwarding
-  sysctl:
-    name: net.ipv4.ip_forward
-    value: "1"
-    state: present
-    reload: yes
-
 - name: start tailscale containers
   community.docker.docker_compose_v2:
     project_src: "{{ tailscale_dir }}"
