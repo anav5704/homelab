@@ -1,0 +1,17 @@
+---
+- name: disable systemd resolved
+  service:
+    name: systemd-resolved
+    state: stopped
+    enabled: no
+
+- name: remove existing resolv.conf
+  file:
+    path: /etc/resolv.conf
+    state: absent
+
+- name: add new resolv.conf
+  copy:
+    src: resolv.conf
+    dest: /etc/resolv.conf
+    mode: "0644"
