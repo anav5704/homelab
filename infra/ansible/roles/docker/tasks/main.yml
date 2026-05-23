@@ -34,3 +34,9 @@
     name: docker
     enabled: yes
     state: started
+
+- name: create homelab docker network
+  community.docker.docker_network:
+    name: homelab
+    driver: bridge
+    state: present
