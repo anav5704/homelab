@@ -1,0 +1,22 @@
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:latest
+    container_name: uptime-kuma
+    hostname: uptime-kuma
+    restart: always
+    env_file:
+      - .env
+
+    networks:
+      - homelab
+
+    ports:
+      - "3001:3001"
+
+    volumes:
+      - ./data:/app/data
+
+networks:
+  homelab:
+    driver: bridge
+    external: true

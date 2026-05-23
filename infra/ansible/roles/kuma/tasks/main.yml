@@ -1,0 +1,22 @@
+---
+- name: Create uptime-kuma service directory
+  ansible.builtin.file:
+    path: "{{ kuma_dir }}"
+    state: directory
+    mode: "0755"
+
+- name: Copy docker-compose.yaml
+  ansible.builtin.copy:
+    src: docker-compose.yaml
+    dest: "{{ kuma_dir }}/docker-compose.yaml"
+    mode: "0644"
+
+- name: Copy .env file
+  ansible.builtin.copy:
+    src: .env
+    dest: "{{ kuma_dir }}/.env"
+    mode: "0600"
+
+- name: Start uptime-kuma service
+  community.docker.docker_compose_v2:
+    project_src: "{{ kuma_dir }}"
