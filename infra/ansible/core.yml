@@ -1,0 +1,5 @@
+---
+- name: setup core nodes
+  hosts: core_nodes
+  roles:
+    - n8n
