@@ -1,0 +1,22 @@
+---
+- name: Create cloudflared service directory
+  ansible.builtin.file:
+    path: "{{ cloudflared_dir }}"
+    state: directory
+    mode: "0755"
+
+- name: Copy docker-compose.yaml
+  ansible.builtin.copy:
+    src: docker-compose.yaml
+    dest: "{{ cloudflared_dir }}/docker-compose.yaml"
+    mode: "0644"
+
+- name: Copy .env file
+  ansible.builtin.copy:
+    src: .env
+    dest: "{{ cloudflared_dir }}/.env"
+    mode: "0600"
+
+- name: Start cloudflared service
+  community.docker.docker_compose_v2:
+    project_src: "{{ cloudflared_dir }}"

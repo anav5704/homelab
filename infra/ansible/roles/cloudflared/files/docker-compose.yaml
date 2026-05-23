@@ -1,0 +1,26 @@
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    hostname: cloudflared
+    restart: unless-stopped
+    env_file:
+      - .env
+
+    networks:
+      - homelab
+
+    command:
+      - tunnel
+      - --no-autoupdate
+      - --loglevel
+      - info
+      - run
+
+    ports:
+      - "127.0.0.1:2000:2000"
+
+networks:
+  homelab:
+    driver: bridge
+    external: true

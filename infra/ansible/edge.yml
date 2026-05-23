@@ -4,3 +4,4 @@
   roles:
     - adguard
     - tailscale
+    - cloudflared
