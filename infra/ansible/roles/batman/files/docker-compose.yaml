@@ -1,0 +1,16 @@
+services:
+  batman-bot:
+    image: ghcr.io/anav5704/ai-discord-bot:latest
+    container_name: batman-bot
+    hostname: batman-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+
+    networks:
+      - homelab
+
+networks:
+  homelab:
+    driver: bridge
+    external: true

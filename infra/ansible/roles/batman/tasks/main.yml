@@ -1,0 +1,22 @@
+---
+- name: Create batman service directory
+  ansible.builtin.file:
+    path: "{{ batman_dir }}"
+    state: directory
+    mode: "0755"
+
+- name: Copy docker-compose.yaml
+  ansible.builtin.copy:
+    src: docker-compose.yaml
+    dest: "{{ batman_dir }}/docker-compose.yaml"
+    mode: "0644"
+
+- name: Copy .env file
+  ansible.builtin.copy:
+    src: .env
+    dest: "{{ batman_dir }}/.env"
+    mode: "0600"
+
+- name: Start batman service
+  community.docker.docker_compose_v2:
+    project_src: "{{ batman_dir }}"

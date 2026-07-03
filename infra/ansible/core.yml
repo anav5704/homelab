@@ -3,3 +3,4 @@
   hosts: core_nodes
   roles:
     - n8n
+    - batman
